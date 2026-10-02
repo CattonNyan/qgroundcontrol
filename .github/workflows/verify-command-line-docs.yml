@@ -18,6 +18,7 @@ jobs:
           egress-policy: audit
       - uses: actions/checkout@v7
         with:
+          ref: 4bb6a823c354ee64533d6908fd45ba73c4b1cc16
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Python
@@ -30,4 +31,4 @@ jobs:
             pre-commit run "$hook" --files docs/en/qgc-dev-guide/command_line_options.md
           done
       - name: Check the documentation patch for whitespace errors
-        run: git diff --check f2f1631964457513f2e9fbaa92da655ad2671bf4 475ba69702741542759d2955ead5722dac74bb23 -- docs/en/qgc-dev-guide/command_line_options.md
+        run: git diff --check f2f1631964457513f2e9fbaa92da655ad2671bf4 HEAD -- docs/en/qgc-dev-guide/command_line_options.md
